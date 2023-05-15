@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
+import 'package:liquid_progress_indicator_ns/liquid_progress_indicator.dart';
 
 class LiquidLinearProgressIndicatorPage extends StatelessWidget {
   @override
