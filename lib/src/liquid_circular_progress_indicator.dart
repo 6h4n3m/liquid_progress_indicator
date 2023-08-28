@@ -8,6 +8,15 @@ const double _epsilon = .001;
 const double _sweep = _twoPi - _epsilon;
 
 class LiquidCircularProgressIndicator extends ProgressIndicator {
+
+  const LiquidCircularProgressIndicator({
+    required this.borderWidth, required this.borderColor, super.key,
+    double super.value = 0.5,
+    super.backgroundColor,
+    Animation<Color>? super.valueColor,
+    this.center,
+    this.direction = Axis.vertical,
+  });
   ///The width of the border, if this is set [borderColor] must also be set.
   final double borderWidth;
 
@@ -19,22 +28,6 @@ class LiquidCircularProgressIndicator extends ProgressIndicator {
 
   ///The direction the liquid travels.
   final Axis direction;
-
-  LiquidCircularProgressIndicator({
-    Key? key,
-    double value = 0.5,
-    Color? backgroundColor,
-    Animation<Color>? valueColor,
-    required this.borderWidth,
-    required this.borderColor,
-    this.center,
-    this.direction = Axis.vertical,
-  }) : super(
-          key: key,
-          value: value,
-          backgroundColor: backgroundColor,
-          valueColor: valueColor,
-        );
 
   Color _getBackgroundColor(BuildContext context) =>
       backgroundColor ?? Theme.of(context).colorScheme.background;
@@ -77,9 +70,9 @@ class _LiquidCircularProgressIndicatorState
 }
 
 class _CirclePainter extends CustomPainter {
-  final Color color;
 
   _CirclePainter({required this.color});
+  final Color color;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -92,10 +85,10 @@ class _CirclePainter extends CustomPainter {
 }
 
 class _CircleBorderPainter extends CustomPainter {
-  final Color color;
-  final double width;
 
   _CircleBorderPainter({required this.color, required this.width});
+  final Color color;
+  final double width;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -105,7 +98,7 @@ class _CircleBorderPainter extends CustomPainter {
       ..strokeWidth = width;
     final newSize = Size(size.width - width, size.height - width);
     canvas.drawArc(
-        Offset(width / 2, width / 2) & newSize, 0, _sweep, false, borderPaint);
+        Offset(width / 2, width / 2) & newSize, 0, _sweep, false, borderPaint,);
   }
 
   @override

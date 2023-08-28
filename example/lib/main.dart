@@ -1,8 +1,7 @@
+import 'package:example/liquid_circular_progress_indicator_page.dart';
+import 'package:example/liquid_custom_progress_indicator_page.dart';
+import 'package:example/liquid_linear_progress_indicator_page.dart';
 import 'package:flutter/material.dart';
-
-import 'liquid_circular_progress_indicator_page.dart';
-import 'liquid_custom_progress_indicator_page.dart';
-import 'liquid_linear_progress_indicator_page.dart';
 
 void main() => runApp(MaterialApp(home: Example()));
 
@@ -11,7 +10,7 @@ class Example extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Liquid Progress Indicator Examples"),
+        title: const Text('Liquid Progress Indicator Examples'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(28.0),
@@ -20,37 +19,43 @@ class Example extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             TextButton(
-              child: Text("Circular"),
               style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.resolveWith(
-                      (states) => Colors.grey[300])),
+                backgroundColor: MaterialStateProperty.resolveWith(
+                  (states) => Colors.grey[300],
+                ),
+              ),
               onPressed: () => Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (_) => LiquidCircularProgressIndicatorPage(),
                 ),
               ),
+              child: const Text('Circular'),
             ),
             TextButton(
-              child: Text("Linear"),
               style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.resolveWith(
-                      (states) => Colors.grey[300])),
+                backgroundColor: MaterialStateProperty.resolveWith(
+                  (states) => Colors.grey[300],
+                ),
+              ),
               onPressed: () => Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (_) => LiquidLinearProgressIndicatorPage(),
                 ),
               ),
+              child: const Text('Linear'),
             ),
             TextButton(
-              child: Text("Custom"),
               style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.resolveWith(
-                      (states) => Colors.grey[300])),
+                backgroundColor: MaterialStateProperty.resolveWith(
+                  (states) => Colors.grey[300],
+                ),
+              ),
               onPressed: () => Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (_) => LiquidCustomProgressIndicatorPage(),
                 ),
               ),
+              child: const Text('Custom'),
             ),
           ],
         ),

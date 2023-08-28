@@ -6,7 +6,7 @@ class LiquidLinearProgressIndicatorPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Liquid Linear Progress Indicators"),
+        title: const Text('Liquid Linear Progress Indicators'),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -15,8 +15,8 @@ class LiquidLinearProgressIndicatorPage extends StatelessWidget {
           Container(
             width: double.infinity,
             height: 35,
-            padding: EdgeInsets.symmetric(horizontal: 24.0),
-            child: LiquidLinearProgressIndicator(
+            padding: const EdgeInsets.symmetric(horizontal: 24.0),
+            child: const LiquidLinearProgressIndicator(
               backgroundColor: Colors.black,
               valueColor: AlwaysStoppedAnimation(Colors.red),
               borderColor: Colors.red,
@@ -27,8 +27,8 @@ class LiquidLinearProgressIndicatorPage extends StatelessWidget {
           Container(
             width: double.infinity,
             height: 35,
-            padding: EdgeInsets.symmetric(horizontal: 24.0),
-            child: LiquidLinearProgressIndicator(
+            padding: const EdgeInsets.symmetric(horizontal: 24.0),
+            child: const LiquidLinearProgressIndicator(
               backgroundColor: Colors.white,
               valueColor: AlwaysStoppedAnimation(Colors.pink),
               borderColor: Colors.red,
@@ -40,15 +40,15 @@ class LiquidLinearProgressIndicatorPage extends StatelessWidget {
           Container(
             width: double.infinity,
             height: 35,
-            padding: EdgeInsets.symmetric(horizontal: 24.0),
-            child: LiquidLinearProgressIndicator(
+            padding: const EdgeInsets.symmetric(horizontal: 24.0),
+            child: const LiquidLinearProgressIndicator(
               backgroundColor: Colors.white,
               valueColor: AlwaysStoppedAnimation(Colors.grey),
               borderColor: Colors.blue,
               borderWidth: 5.0,
               borderRadius: 12.0,
               center: Text(
-                "Loading...",
+                'Loading...',
                 style: TextStyle(
                   fontSize: 12.0,
                   fontWeight: FontWeight.bold,
@@ -59,8 +59,8 @@ class LiquidLinearProgressIndicatorPage extends StatelessWidget {
           Container(
             width: double.infinity,
             height: 35,
-            padding: EdgeInsets.symmetric(horizontal: 24.0),
-            child: LiquidLinearProgressIndicator(
+            padding: const EdgeInsets.symmetric(horizontal: 24.0),
+            child: const LiquidLinearProgressIndicator(
               backgroundColor: Colors.lightGreen,
               valueColor: AlwaysStoppedAnimation(Colors.blueGrey),
               direction: Axis.vertical,
@@ -91,7 +91,7 @@ class _AnimatedLiquidLinearProgressIndicatorState
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 10),
+      duration: const Duration(seconds: 10),
     );
 
     _animationController.addListener(() => setState(() {}));
@@ -111,17 +111,17 @@ class _AnimatedLiquidLinearProgressIndicatorState
       child: Container(
         width: double.infinity,
         height: 75.0,
-        padding: EdgeInsets.symmetric(horizontal: 24.0),
+        padding: const EdgeInsets.symmetric(horizontal: 24.0),
         child: LiquidLinearProgressIndicator(
           value: _animationController.value,
           backgroundColor: Colors.white,
-          valueColor: AlwaysStoppedAnimation(Colors.blue),
+          valueColor: const AlwaysStoppedAnimation(Colors.blue),
           borderRadius: 12.0,
           borderColor: Colors.red,
           borderWidth: 5.0,
           center: Text(
-            "${percentage.toStringAsFixed(0)}%",
-            style: TextStyle(
+            '${percentage.toStringAsFixed(0)}%',
+            style: const TextStyle(
               color: Colors.lightBlueAccent,
               fontSize: 20.0,
               fontWeight: FontWeight.bold,
