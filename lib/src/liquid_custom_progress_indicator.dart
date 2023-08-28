@@ -2,35 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:liquid_progress_indicator_ns/src/wave.dart';
 
 class LiquidCustomProgressIndicator extends ProgressIndicator {
+  const LiquidCustomProgressIndicator({
+    required this.direction,
+    required this.shapePath,
+    super.key,
+    double super.value = 0.5,
+    super.backgroundColor,
+    Animation<Color>? super.valueColor,
+    this.center,
+  });
+
   ///The widget to show in the center of the progress indicator.
   final Widget? center;
 
   ///The direction the liquid travels.
   final Axis direction;
 
-  ///The path used to draw the shape of the progress indicator. The size of the progress indicator is controlled by the bounds of this path.
+  ///The path used to draw the shape of the progress indicator.
+  ///The size of the progress indicator is controlled by the bounds of this path
   final Path shapePath;
 
-  LiquidCustomProgressIndicator({
-    Key? key,
-    double value = 0.5,
-    Color? backgroundColor,
-    Animation<Color>? valueColor,
-    this.center,
-    required this.direction,
-    required this.shapePath,
-  }) : super(
-          key: key,
-          value: value,
-          backgroundColor: backgroundColor,
-          valueColor: valueColor,
-        );
-
   Color _getBackgroundColor(BuildContext context) =>
-      backgroundColor ?? Theme.of(context).backgroundColor;
+      backgroundColor ?? Theme.of(context).colorScheme.background;
 
   Color _getValueColor(BuildContext context) =>
-      valueColor?.value ?? Theme.of(context).accentColor;
+      valueColor?.value ?? Theme.of(context).colorScheme.secondary;
 
   @override
   State<StatefulWidget> createState() => _LiquidCustomProgressIndicatorState();
@@ -74,10 +70,9 @@ class _LiquidCustomProgressIndicatorState
 }
 
 class _CustomPathPainter extends CustomPainter {
+  _CustomPathPainter({required this.color, required this.path});
   final Color color;
   final Path path;
-
-  _CustomPathPainter({required this.color, required this.path});
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -91,9 +86,8 @@ class _CustomPathPainter extends CustomPainter {
 }
 
 class _CustomPathClipper extends CustomClipper<Path> {
-  final Path path;
-
   _CustomPathClipper({required this.path});
+  final Path path;
 
   @override
   Path getClip(Size size) {

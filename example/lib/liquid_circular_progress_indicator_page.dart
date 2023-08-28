@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
+import 'package:liquid_progress_indicator_ns/liquid_progress_indicator.dart';
 
 class LiquidCircularProgressIndicatorPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Liquid Circular Progress Indicators"),
+        title: const Text('Liquid Circular Progress Indicators'),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           _AnimatedLiquidCircularProgressIndicator(),
-          Row(
+          const Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               SizedBox(
@@ -45,7 +45,7 @@ class LiquidCircularProgressIndicatorPage extends StatelessWidget {
                   borderColor: Colors.blue,
                   borderWidth: 5.0,
                   center: Text(
-                    "Loading...",
+                    'Loading...',
                     style: TextStyle(
                       fontSize: 12.0,
                       fontWeight: FontWeight.bold,
@@ -88,7 +88,7 @@ class _AnimatedLiquidCircularProgressIndicatorState
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 10),
+      duration: const Duration(seconds: 10),
     );
 
     _animationController.addListener(() => setState(() {}));
@@ -111,12 +111,12 @@ class _AnimatedLiquidCircularProgressIndicatorState
         child: LiquidCircularProgressIndicator(
           value: _animationController.value,
           backgroundColor: Colors.white,
-          valueColor: AlwaysStoppedAnimation(Colors.blue),
+          valueColor: const AlwaysStoppedAnimation(Colors.blue),
           borderColor: Colors.blue,
           borderWidth: 5.0,
           center: Text(
-            "${percentage.toStringAsFixed(0)}%",
-            style: TextStyle(
+            '${percentage.toStringAsFixed(0)}%',
+            style: const TextStyle(
               color: Colors.lightBlueAccent,
               fontSize: 20.0,
               fontWeight: FontWeight.bold,

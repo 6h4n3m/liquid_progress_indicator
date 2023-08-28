@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
+import 'package:liquid_progress_indicator_ns/liquid_progress_indicator.dart';
 
 class LiquidCustomProgressIndicatorPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Liquid Custom Progress Indicators"),
+        title: const Text('Liquid Custom Progress Indicators'),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -23,11 +23,11 @@ class LiquidCustomProgressIndicatorPage extends StatelessWidget {
               LiquidCustomProgressIndicator(
                 direction: Axis.horizontal,
                 backgroundColor: Colors.grey[300],
-                valueColor: AlwaysStoppedAnimation(Colors.red),
+                valueColor: const AlwaysStoppedAnimation(Colors.red),
                 shapePath: _buildSpeechBubblePath(),
               ),
             ],
-          )
+          ),
         ],
       ),
     );
@@ -76,7 +76,7 @@ class _AnimatedLiquidCustomProgressIndicatorState
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 10),
+      duration: const Duration(seconds: 10),
     );
 
     _animationController.addListener(() => setState(() {}));
@@ -97,11 +97,11 @@ class _AnimatedLiquidCustomProgressIndicatorState
         value: _animationController.value,
         direction: Axis.vertical,
         backgroundColor: Colors.white,
-        valueColor: AlwaysStoppedAnimation(Colors.green),
+        valueColor: const AlwaysStoppedAnimation(Colors.green),
         shapePath: _buildHeartPath(),
         center: Text(
-          "${percentage.toStringAsFixed(0)}%",
-          style: TextStyle(
+          '${percentage.toStringAsFixed(0)}%',
+          style: const TextStyle(
             color: Colors.lightGreenAccent,
             fontSize: 20.0,
             fontWeight: FontWeight.bold,
